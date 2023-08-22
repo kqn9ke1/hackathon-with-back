@@ -1,0 +1,21 @@
+.profile_avatar_container img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.profile_avatar_container {
+  margin: 50px 0;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.profile_post img {
+  max-width: 300px;
+}
+.grid_card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
