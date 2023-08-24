@@ -89,7 +89,11 @@ export default function ProfilePage() {
             <MDBCard>
               <div
                 className="rounded-top text-white d-flex flex-row"
-                style={{ backgroundColor: "#000", height: "200px" }}
+                style={{
+                  background:
+                    "linear-gradient(45deg,rgba(45, 147, 253, 1) 3%,rgba(195, 34, 183, 1) 92%)",
+                  height: "200px",
+                }}
               >
                 <div
                   className="ms-4 mt-5 d-flex flex-column"
