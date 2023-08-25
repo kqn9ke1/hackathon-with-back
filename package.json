@@ -15,8 +15,12 @@
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "axios": "^1.4.0",
+<<<<<<< HEAD
     "install": "^0.13.0",
     "npm": "^9.8.1",
+=======
+    "mdb-react-ui-kit": "^6.2.0",
+>>>>>>> 62f394fb6ba9c98b047e58da0420f9ebb57327db
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
