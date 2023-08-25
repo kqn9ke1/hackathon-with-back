@@ -37,11 +37,13 @@ const ProductContext: FC<ProductContextProps> = ({ children }) => {
 
   async function getProducts() {
     try {
-      const { data } = await $axios.get(`${API}/products/`);
-
+      const { data } = await $axios.get(
+        `${API}/products/${window.location.search}`
+      );
+      console.log(data);
       dispatch({
         type: "products",
-        payload: data.results,
+        payload: data,
       });
     } catch (e) {
       console.log(e);

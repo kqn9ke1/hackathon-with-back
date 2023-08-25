@@ -1,0 +1,11 @@
+.add_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img_input {
+  width: 80%;
+}
+.modal_form {
+  width: 50%;
+}
