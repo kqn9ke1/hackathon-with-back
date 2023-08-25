@@ -1,0 +1,247 @@
+.wrapDiv {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.mainDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 20% 40px 20%;
+  height: 480px;
+  width: 520px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+}
+
+.pictureDiv {
+  position: relative;
+  border: 1px solid #000;
+  width: 40%;
+  height: 100%;
+}
+
+.functionalDiv {
+  position: relative;
+  border: 1px solid #000;
+  border-left: none;
+  width: 60%;
+  height: 100%;
+}
+.pictureDiv img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.headerDiv {
+  min-height: 12.89%;
+  position: relative;
+}
+
+.profileHeader {
+  width: 90%;
+  min-height: 100%;
+  border: 1px solid grey;
+  position: absolute;
+  border-right: none;
+  left: 0; /* Занимает всю доступную ширину слева */
+}
+
+.buttonDiv {
+  position: absolute;
+  width: 10%;
+  min-height: 100%;
+  border: 1px dotted #000;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.buttonDiv img {
+  max-width: 30%;
+}
+.commentDiv {
+  height: 62.71%;
+  border: 1px dotted #000;
+  border-top: 0;
+  width: 100%;
+}
+.reactionDiv {
+  border: 1px dotted #000;
+  border-bottom: none;
+  border-top: 0;
+  width: 100%;
+  height: 10.05%;
+}
+.likeDiv {
+  border: 1px dotted #000;
+  border-top: 0;
+  width: 100%;
+  height: 4.6%;
+}
+.headerContent {
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  padding-top: 10px;
+  position: absolute;
+}
+.addCommentDiv {
+  width: 100%;
+  height: 9.74%;
+}
+.circleDiv {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ddd;
+  margin-right: 3.75%;
+  margin-left: 3.69%;
+}
+.circleDiv img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.headerContent span {
+  justify-content: left;
+}
+.separateSpan {
+  position: relative;
+  width: auto;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+.nicknameSpan {
+  color: #262626;
+  font-size: 14px;
+  height: 18px;
+  width: auto;
+  font-weight: bold;
+}
+.subscribeSpan {
+  width: auto;
+  color: #0095f6;
+}
+.subscribeSpan:hover {
+  color: darkblue;
+}
+.reactionDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dotted #000;
+}
+.reactionButtonsDiv {
+  justify-content: center;
+  align-items: center;
+}
+.reactionButtonsDiv img {
+  width: 20px;
+  left: 0;
+}
+.addToFavDiv {
+  right: 0;
+}
+.addToFavDiv img {
+  width: 20px;
+}
+.likeDiv {
+  align-items: center;
+}
+.likeDiv div {
+  display: flex;
+}
+
+.likeDiv div {
+  margin-left: 4%;
+  margin-bottom: 2%;
+}
+.likeCounterDiv span {
+  font-weight: bold;
+  font-size: 14px;
+}
+.likeCounterDiv {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1;
+}
+.dateSpan {
+  font-size: 10px;
+  color: #737373;
+  margin-bottom: 5px;
+  z-index: 1;
+}
+.addCommentDiv {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.addCommentDiv div {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+}
+.smileBoxDiv {
+  justify-content: center;
+  align-items: center;
+}
+.addCommentDiv img {
+  max-width: 20px;
+  object-fit: cover;
+}
+.addCommentDiv span {
+  color: blue;
+  max-width: 100%;
+}
+.addCommentDiv input {
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 800px) {
+  .pictureDiv {
+    width: 100%;
+    height: 50%;
+  }
+  .mainDiv {
+    flex-direction: column;
+    height: 580px;
+  }
+  .functionalDiv {
+    width: 100%;
+    height: 50%;
+    border-bottom: none;
+    border-left: 1px solid black;
+  }
+
+  .commentDiv {
+    /* display: none; */
+    height: 70%;
+  }
+
+  .addCommentDiv {
+    border: 1px double black;
+    /* display: none; */
+  }
+  .headerContentDiv span {
+    align-items: center;
+    justify-content: center;
+  }
+  .profileHeader {
+    border: none;
+    margin-bottom: 20px;
+  }
+}
