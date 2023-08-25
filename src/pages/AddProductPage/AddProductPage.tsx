@@ -13,7 +13,7 @@ function AddProductPage() {
     price: "",
     image: "",
     category: "",
-    stock: "",
+    stock: "in_stock",
   });
 
   useEffect(() => {
@@ -56,14 +56,14 @@ function AddProductPage() {
     const data = new FormData(event.currentTarget);
 
     addProduct(data);
-
+    console.log(categories[0].name);
     setFormValue({
       title: "",
       description: "",
       price: "",
       image: "",
       category: "",
-      stock: "",
+      stock: "in_stock",
     });
   };
   return (
@@ -81,13 +81,8 @@ function AddProductPage() {
           value={formValue.description}
           onChange={handleChange}
         />
-        <input
-          type="text"
-          name="title"
-          value={formValue.title}
-          onChange={handleChange}
-        />
-        <form action="">
+
+        <form>
           <select
             name="category"
             id="demo-simple-select"

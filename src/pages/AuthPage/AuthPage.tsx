@@ -4,7 +4,7 @@ import { useAuthContext } from "../../contexts/AuthContext/AuthContext";
 import { IUserLogin, IUserRegister } from "../../contexts/AuthContext/type";
 import { Navigate } from "react-router-dom";
 const AuthPage = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const { user, register, login } = useAuthContext();
 

@@ -94,7 +94,7 @@ const ProductContext: FC<ProductContextProps> = ({ children }) => {
       console.log(data);
       dispatch({
         type: "categories",
-        payload: data.results,
+        payload: data,
       });
     } catch (e) {
       console.log(e);
