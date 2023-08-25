@@ -29,11 +29,11 @@ const AuthContext: FC<authContextPropsType> = ({ children }) => {
   const [user, setUser] = useState(null);
 
   // Метод регистрации пользователя
-  const register = async (credentials: IUserRegister) => {
+  const register = async (credentials1: IUserRegister) => {
     try {
-      const res = await axios.post(`${API}/account/register/`, credentials);
+      const res = await axios.post(`${API}/accounts/register/`, credentials1);
     } catch (e) {
-      console.log(e);
+      console.log(e, "error");
     }
   };
 
@@ -42,16 +42,12 @@ const AuthContext: FC<authContextPropsType> = ({ children }) => {
     try {
       // Отправка запроса на вход пользователя и получение токенов
       const { data: tokens } = await axios.post<ITokens>(
-        `${API}/account/login/`,
+        `${API}/accounts/login/`,
         credentials
       );
 
       // Сохранение токенов в локальном хранилище
       localStorage.setItem("tokens", JSON.stringify(tokens));
-
-      // Запрос на получение профиля пользователя и установка пользователя в состояние
-      const { data } = await $axios.get(`${API}/account/profile/`);
-      setUser(data);
     } catch (e) {
       console.log(e);
     }
@@ -70,7 +66,7 @@ const AuthContext: FC<authContextPropsType> = ({ children }) => {
       const tokens = JSON.stringify(localStorage.getItem("tokens") as string);
       if (tokens) {
         // Запрос на получение профиля пользователя и установка пользователя в состояние
-        const { data } = await $axios.get(`${API}/account/profile/`);
+        const { data } = await $axios.get(`${API}/accounts/profile/`);
         setUser(data);
       }
     } catch (e) {
@@ -92,8 +88,6 @@ const AuthContext: FC<authContextPropsType> = ({ children }) => {
 };
 
 export default AuthContext;
-
-//!-----------------------
 
 //? Данный код представляет собой реализацию контекста аутентификации (AuthContext) в React. Этот контекст предоставляет состояние и методы для регистрации, входа и выхода пользователя, а также проверки статуса аутентификации.
 
