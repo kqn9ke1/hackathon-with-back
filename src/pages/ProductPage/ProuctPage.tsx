@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./ProductPage.css";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import { IProductContextTypes } from "../../contexts/ProductContext/types";
 
@@ -16,7 +16,10 @@ const ProuctPage = () => {
   return (
     <div className="container">
       {products?.map((item) => (
-        <img src={item.image} alt="" className="image" />
+        <div key={item.id}>
+          <img src={item.image} alt="" className="image" />
+          <Link to={`/edit/${item.id}`}>Edit</Link>
+        </div>
       ))}
     </div>
   );
