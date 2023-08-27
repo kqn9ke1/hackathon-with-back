@@ -30,7 +30,7 @@ $axios.interceptors.response.use(
       // Попытка обновления токена
       const tokens = JSON.parse(localStorage.getItem("tokens") as string);
       if (tokens) {
-        const { data } = await axios.post(`${API}/account/token/refresh/`, {
+        const { data } = await axios.post(`${API}/accounts/refresh/`, {
           refresh: tokens.refresh,
         });
 
