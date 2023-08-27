@@ -33,7 +33,7 @@ input::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.824);
 }
 
-/* .form_container button {
+.form_container button {
   padding: 6px;
   width: 300px;
   background: rgba(255, 255, 255, 0.039);
@@ -55,7 +55,7 @@ input::-webkit-input-placeholder {
   outline-color: rgba(255, 255, 255, 0);
   outline-offset: 15px;
   text-shadow: 1px 1px 2px #427388;
-} */
+}
 .form_container input,
 button {
   border-radius: 10px !important;

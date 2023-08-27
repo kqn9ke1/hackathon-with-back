@@ -3,12 +3,11 @@ import "../AuthPage/AuthPage.css";
 import { useAuthContext } from "../../contexts/AuthContext/AuthContext";
 import { IUserLogin, IUserRegister } from "../../contexts/AuthContext/type";
 import { Navigate, Link } from "react-router-dom";
-import { Button } from "@mui/material";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
 
-  const { user, register, login } = useAuthContext();
+  const { user, register, login, isAdmin } = useAuthContext();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -34,6 +33,7 @@ const AuthPage = () => {
   };
 
   if (user) {
+    console.log(user, "user");
     return <Navigate to="/" />;
   }
 
@@ -59,37 +59,7 @@ const AuthPage = () => {
             <input type="password" name="password2" required />
           </>
         )}
-        <Button
-          sx={{
-            padding: "6px",
-            width: "300px",
-            background: "rgba(255, 255, 255, 0.039)",
-            color: "white",
-            border: "0 solid rgba(255, 255, 255, 0.039)",
-            boxShadow: "inset 0 0 20px rgba(255, 255, 255, 0)",
-            outline: "1px solid",
-            outlineColor: "rgba(255, 255, 255, 0.5)",
-            outlineOffset: "0px",
-            textShadow: "none",
-            transition: "all 1250ms cubic-bezier(0.19, 1, 0.22, 1)",
-            cursor: "pointer",
-            mb: "5px",
-            "&:hover": {
-              border: "1px solid",
-              boxShadow:
-                "inset 0 0 20px rgba(255, 255, 255, 0.5),0 0 20px rgba(255, 255, 255, 0.2)",
-              outlineColor: "rgba(255, 255, 255, 0)",
-              outlineOffset: "15px",
-              textShadow: "1px 1px 2px #427388",
-            },
-          }}
-          type="submit"
-
-          // component={Link}
-          // to="/"
-        >
-          {isLogin ? "Log in" : "Sign up"}
-        </Button>
+        <button type="submit">{isLogin ? "Log in" : "Sign up"}</button>
         <a href="#" className="a" onClick={() => setIsLogin(!isLogin)}>
           {isLogin
             ? "Don't have an account? Sign up"
@@ -101,3 +71,27 @@ const AuthPage = () => {
 };
 
 export default AuthPage;
+
+// sx={{
+//   padding: "6px",
+//   width: "300px",
+//   background: "rgba(255, 255, 255, 0.039)",
+//   color: "white",
+//   border: "0 solid rgba(255, 255, 255, 0.039)",
+//   boxShadow: "inset 0 0 20px rgba(255, 255, 255, 0)",
+//   outline: "1px solid",
+//   outlineColor: "rgba(255, 255, 255, 0.5)",
+//   outlineOffset: "0px",
+//   textShadow: "none",
+//   transition: "all 1250ms cubic-bezier(0.19, 1, 0.22, 1)",
+//   cursor: "pointer",
+//   mb: "5px",
+//   "&:hover": {
+//     border: "1px solid",
+//     boxShadow:
+//       "inset 0 0 20px rgba(255, 255, 255, 0.5),0 0 20px rgba(255, 255, 255, 0.2)",
+//     outlineColor: "rgba(255, 255, 255, 0)",
+//     outlineOffset: "15px",
+//     textShadow: "1px 1px 2px #427388",
+//   },
+// }}

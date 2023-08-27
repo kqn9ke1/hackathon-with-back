@@ -1,71 +1,3 @@
-// import React from "react";
-// import "./ProfilePage.css";
-
-// const ProfilePage = () => {
-//   const handleDoubleClick = () => {
-//     console.log("double clicked");
-//   };
-
-//   return (
-//     <div className="profile_avatar">
-//       <div className="profile_avatar_container">
-//         <img
-//           src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
-//           alt="eyes"
-//           onDoubleClick={handleDoubleClick}
-//         />
-//         <h1>Justin Biber</h1>
-//         <button className="btn">Edit</button>
-//       </div>
-//       <div className="grid_card">
-//         <div className="profile_post">
-//           <img
-//             src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
-//             alt="the way"
-//           />
-//           <p>Lorem ipsum dolor sit amet consectetur.</p>
-//         </div>
-//         <div className="profile_post">
-//           <img
-//             src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
-//             alt="the way"
-//           />
-//           <p>Lorem ipsum dolor sit amet consectetur.</p>
-//         </div>
-//         <div className="profile_post">
-//           <img
-//             src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
-//             alt="the way"
-//           />
-//           <p>Lorem ipsum dolor sit amet consectetur.</p>
-//         </div>
-//         <div className="profile_post">
-//           <img
-//             src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
-//             alt="the way"
-//           />
-//           <p>Lorem ipsum dolor sit amet consectetur.</p>
-//         </div>
-//         <div className="profile_post">
-//           <img
-//             src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
-//             alt="the way"
-//           />
-//           <p>Lorem ipsum dolor sit amet consectetur.</p>
-//         </div>
-//         <div className="profile_post">
-//           <img
-//             src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png"
-//             alt="the way"
-//           />
-//           <p>Lorem ipsum dolor sit amet consectetur.</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ProfilePage;
 import React from "react";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import {
@@ -80,10 +12,17 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 import LiveSearch from "../../components/common/LiveSearch/LiveSearch";
+import CommentInput from "../../components/CommentInput";
 
 export default function ProfilePage() {
   return (
-    <div className="gradient-custom-2">
+    <div
+      className="gradient-custom-2"
+      style={{
+        background:
+          "linear-gradient(45deg,rgba(45, 147, 253, 1) 3%,rgba(195, 34, 183, 1) 92%)",
+      }}
+    >
       <LiveSearch />
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
@@ -92,8 +31,7 @@ export default function ProfilePage() {
               <div
                 className="rounded-top text-white d-flex flex-row"
                 style={{
-                  background:
-                    "linear-gradient(45deg,rgba(45, 147, 253, 1) 3%,rgba(195, 34, 183, 1) 92%)",
+                  background: "black",
                   height: "200px",
                 }}
               >
@@ -125,26 +63,7 @@ export default function ProfilePage() {
                 className="p-4 text-black"
                 style={{ backgroundColor: "#f8f9fa" }}
               >
-                <div className="d-flex justify-content-end text-center py-1">
-                  {/* <div>
-                    <MDBCardText className="mb-1 h5">253</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">
-                      Photos
-                    </MDBCardText>
-                  </div>
-                  <div className="px-3">
-                    <MDBCardText className="mb-1 h5">104m</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">
-                      Followers
-                    </MDBCardText>
-                  </div>
-                  <div>
-                    <MDBCardText className="mb-1 h5">4780</MDBCardText>
-                    <MDBCardText className="small text-muted mb-0">
-                      Following
-                    </MDBCardText>
-                  </div> */}
-                </div>
+                <div className="d-flex justify-content-end text-center py-1"></div>
               </div>
               <MDBCardBody className="text-black p-4">
                 <div className="mb-5">
@@ -205,6 +124,7 @@ export default function ProfilePage() {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
+      <CommentInput />
     </div>
   );
 }
