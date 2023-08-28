@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import "./ProductPage.css";
 import { Link, useSearchParams } from "react-router-dom";
 import { productContext } from "../../contexts/ProductContext/ProductContext";
 import { IProductContextTypes } from "../../contexts/ProductContext/types";
+import Filter from "../../components/Filter";
 
 const ProuctPage = () => {
   const { getProducts, products } = useContext(
@@ -21,6 +22,7 @@ const ProuctPage = () => {
           <Link to={`/edit/${item.id}`}>Edit</Link>
         </div>
       ))}
+      <Filter />
     </div>
   );
 };

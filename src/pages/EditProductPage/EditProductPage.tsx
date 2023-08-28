@@ -4,7 +4,6 @@ import { productContext } from "../../contexts/ProductContext/ProductContext";
 import { IProductContextTypes } from "../../contexts/ProductContext/types";
 import "./EditProductPage.css";
 import Modal from "react-modal";
-
 function EditProductPage() {
   const { categories, getCategories, oneProduct, getOneProduct, editProduct } =
     useContext(productContext) as IProductContextTypes;

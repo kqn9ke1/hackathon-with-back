@@ -59,7 +59,7 @@ function AddProductPage() {
     const data = new FormData(event.currentTarget);
 
     addProduct(data);
-    console.log(categories[0].name);
+    // console.log(categories[0].name);
     setFormValue({
       title: "a",
       price: "0",
@@ -133,21 +133,11 @@ function AddProductPage() {
               onChange={handleChange}
               className="categ_select"
             >
-              {/* <input
-              type="text"
-              list="category"
-              name="category"
-              value={formValue.category}
-              onChange={handleChange}
-            />
-            <datalist id="category"> */}
-
               {categories?.map((item) => (
                 <option key={item.slug} value={item.name}>
                   {item.name}
                 </option>
               ))}
-              {/* </datalist> */}
             </select>
           </form>
         </>
