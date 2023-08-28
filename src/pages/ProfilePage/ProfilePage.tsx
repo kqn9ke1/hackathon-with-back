@@ -79,10 +79,12 @@ import {
   MDBBtn,
   MDBTypography,
 } from "mdb-react-ui-kit";
+import LiveSearch from "../../components/common/LiveSearch/LiveSearch";
 
 export default function ProfilePage() {
   return (
     <div className="gradient-custom-2">
+      <LiveSearch />
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
           <MDBCol xs="12" sm="10" md="8" lg="7" xl="7">
