@@ -15,6 +15,7 @@ function EditProductPage() {
     image: "",
     category: "",
     stock: "",
+    owner_email: ["admin@gmail.com"],
   });
 
   const { id } = useParams() as { id: string };
@@ -80,7 +81,7 @@ function EditProductPage() {
         <p>Редактировать</p>
         <button type="submit" className="btn_save">
           <p className="p_save">Сохранить</p>
-        </button>{" "}
+        </button>
       </div>
       <>
         <textarea

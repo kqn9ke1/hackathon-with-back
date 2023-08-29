@@ -10,6 +10,7 @@ export interface IProduct {
   stock: string;
   image: string;
   category: string;
+  owner_email: string[];
 }
 
 export interface initStateProducts {

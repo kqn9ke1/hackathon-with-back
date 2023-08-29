@@ -6,6 +6,7 @@ export interface IAuthContextTypes {
   login: (credentials: IUserLogin) => void;
   logout: () => void;
   checkAuth: () => void;
+  isAdmin: () => boolean;
 }
 export interface IUserLogin {
   email: string;
