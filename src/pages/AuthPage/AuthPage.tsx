@@ -7,7 +7,6 @@ import { Button } from "@mui/material";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(false);
-
   const { user, register, login } = useAuthContext();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -36,7 +35,7 @@ const AuthPage = () => {
   if (user) {
     return <Navigate to="/" />;
   }
-
+  // console.log(user + ":user");
   return (
     <div className="auth_container">
       <form className="form_container" onSubmit={handleSubmit}>

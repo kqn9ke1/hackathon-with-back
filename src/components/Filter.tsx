@@ -13,7 +13,7 @@ const Filter = () => {
     searchParams.get("category") || ""
   );
   const [firstMount, setFirstMount] = React.useState(true);
-  console.log(searchParams);
+  // console.log(searchParams);
   React.useEffect(() => {
     if (firstMount) {
       setFirstMount(false);
@@ -38,10 +38,10 @@ const Filter = () => {
   useEffect(() => {
     getCategories();
     getProducts();
-    console.log(products);
+    // console.log(products);
   }, []);
 
-  console.log(products);
+  // console.log(products);
   return (
     <form className="categ_form">
       Выберите Категорию

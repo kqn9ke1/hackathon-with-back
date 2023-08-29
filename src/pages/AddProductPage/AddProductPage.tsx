@@ -18,6 +18,7 @@ function AddProductPage() {
     image: "",
     category: "",
     stock: "in_stock",
+    owner_email: ["admin@gmail.com"],
   });
 
   useEffect(() => {
@@ -49,8 +50,8 @@ function AddProductPage() {
 
     if (
       !formValue.description.trim() ||
-      !formValue.image ||
-      !formValue.category.trim()
+      !formValue.category.trim() ||
+      !formValue.title
     ) {
       alert("fill all fields");
       return;
@@ -59,7 +60,6 @@ function AddProductPage() {
     const data = new FormData(event.currentTarget);
 
     addProduct(data);
-    // console.log(categories[0].name);
     setFormValue({
       title: "a",
       price: "0",
@@ -67,18 +67,11 @@ function AddProductPage() {
       stock: "in_stock",
       image: "",
       category: "",
+      owner_email: ["admin@gmail.com"],
     });
     navigate("/posts");
   };
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
   const modalContent = (
     <form action="" onSubmit={handleSubmit} className="add_form">
       <div className="form_save">
@@ -123,6 +116,7 @@ function AddProductPage() {
             value={formValue.description}
             onChange={handleChange}
             placeholder="Добавьте подпись..."
+            // label="Description"
           ></textarea>
           <form className="categ_form">
             Выберите Категорию
@@ -147,7 +141,38 @@ function AddProductPage() {
   );
   return (
     <>
-      <button onClick={openModal}>Открыть модальное окно</button>
+      <button
+        onClick={() =>
+          addProduct({
+            title: "aaa",
+            price: "0",
+            description: "gssdv",
+            stock: "in_stock",
+            image: "rgvsvgr",
+            category: "cats",
+            owner_email: ["@admin@gmail.com"],
+          })
+        }
+      >
+        Savee
+      </button>
+      <form action="" onSubmit={handleSubmit} className="add_form">
+        <input type="file" name="image" onChange={handleChange} />
+        <input type="text" name="stock" onChange={handleChange} />
+        <input type="text" name="title" onChange={handleChange} />
+        <input type="text" name="price" onChange={handleChange} />
+        <input type="text" name="category" onChange={handleChange} />
+
+        <textarea
+          name="description"
+          value={formValue.description}
+          onChange={handleChange}
+          placeholder="Добавьте подпись..."
+          // label="Description"
+        ></textarea>
+        <button type="submit">save</button>
+      </form>
+      {/* <button onClick={openModal}>Открыть модальное окно</button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => {
@@ -157,7 +182,7 @@ function AddProductPage() {
         className="modal_form"
       >
         {modalContent}
-      </Modal>
+      </Modal> */}
     </>
   );
 }

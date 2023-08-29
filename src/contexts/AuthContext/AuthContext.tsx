@@ -9,6 +9,7 @@ import axios from "axios";
 import { API } from "../../utils/consts";
 import $axios from "../../utils/axios";
 import { IAuthContextTypes, ITokens, IUserLogin, IUserRegister } from "./type";
+import { IUser } from "../../models/user";
 
 // Создание контекста аутентификации
 const authContext = createContext<IAuthContextTypes | null>(null);
@@ -32,6 +33,7 @@ const AuthContext: FC<authContextPropsType> = ({ children }) => {
   const register = async (credentials1: IUserRegister) => {
     try {
       const res = await axios.post(`${API}/accounts/register/`, credentials1);
+      setUser(res.data);
     } catch (e) {
       console.log(e, "error");
     }
@@ -46,6 +48,7 @@ const AuthContext: FC<authContextPropsType> = ({ children }) => {
         credentials
       );
 
+      // console.log(data );
       // Сохранение токенов в локальном хранилище
       localStorage.setItem("tokens", JSON.stringify(tokens));
     } catch (e) {

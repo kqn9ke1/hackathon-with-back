@@ -10,6 +10,7 @@ export interface IProduct {
   stock: string;
   image: string;
   category: string;
+  owner_email: string[];
 }
 
 export interface initStateProducts {
@@ -28,6 +29,9 @@ export interface IProductContextTypes {
   deleteProduct: (id: number) => void;
   getOneProduct: (id: number) => void;
   editProduct: (id: number, newData: any) => void;
+  modalIsOpen: boolean;
+  openModal: () => void;
+  closeModal: () => void;
 }
 
 interface IProductsAction {
@@ -54,4 +58,5 @@ export interface IProductCreate {
   image: File;
   category: string;
   stock: string;
+  owner_email: string[];
 }

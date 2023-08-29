@@ -5,15 +5,23 @@ import { IProductContextTypes } from "../../contexts/ProductContext/types";
 import "./EditProductPage.css";
 import Modal from "react-modal";
 function EditProductPage() {
-  const { categories, getCategories, oneProduct, getOneProduct, editProduct } =
-    useContext(productContext) as IProductContextTypes;
+  const {
+    categories,
+    getCategories,
+    oneProduct,
+    getOneProduct,
+    editProduct,
+    modalIsOpen,
+    closeModal,
+  } = useContext(productContext) as IProductContextTypes;
   const [formValue, setFormValue] = useState({
-    title: "",
+    title: "title",
     description: "",
-    price: "",
+    price: "0",
     image: "",
     category: "",
-    stock: "",
+    stock: "in_stock",
+    owner_email: ["admin@gmail.com"],
   });
 
   const { id } = useParams() as { id: string };
@@ -23,7 +31,7 @@ function EditProductPage() {
     getCategories();
     getOneProduct(+id);
   }, []);
-
+  console.log(oneProduct);
   useEffect(() => {
     if (oneProduct) {
       setFormValue(oneProduct);
@@ -58,15 +66,15 @@ function EditProductPage() {
     editProduct(+id, data);
     navigate(-1);
   };
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
+  // const openModal = () => {
+  //   setModalIsOpen(true);
+  // };
 
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
+  // const closeModal = () => {
+  //   setModalIsOpen(false);
+  // };
   const modalContent = (
     <form action="" onSubmit={handleSubmit} className="add_form">
       <div className="form_save">
@@ -111,7 +119,6 @@ function EditProductPage() {
   );
   return (
     <>
-      <button onClick={openModal}>Открыть модальное окно</button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

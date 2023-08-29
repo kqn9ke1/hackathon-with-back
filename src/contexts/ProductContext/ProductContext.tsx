@@ -1,4 +1,10 @@
-import React, { FC, ReactNode, createContext, useReducer } from "react";
+import React, {
+  FC,
+  ReactNode,
+  createContext,
+  useReducer,
+  useState,
+} from "react";
 import {
   IProductContextActions,
   IProductContextTypes,
@@ -7,6 +13,7 @@ import {
 } from "./types";
 import $axios from "../../utils/axios";
 import { API } from "../../utils/consts";
+import axios from "axios";
 
 export const productContext = createContext<IProductContextTypes | null>(null);
 
@@ -34,7 +41,15 @@ interface ProductContextProps {
 }
 const ProductContext: FC<ProductContextProps> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initState);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
   async function getProducts() {
     try {
       const { data } = await $axios.get(
@@ -53,7 +68,7 @@ const ProductContext: FC<ProductContextProps> = ({ children }) => {
   async function getOneProduct(id: number) {
     try {
       const { data } = await $axios.get(`${API}/products/${id}/`);
-
+      console.log(data);
       dispatch({
         type: "oneProduct",
         payload: data,
@@ -63,7 +78,7 @@ const ProductContext: FC<ProductContextProps> = ({ children }) => {
     }
   }
 
-  async function addProduct(newProduct: any) {
+  async function addProduct(newProduct: IProductCreate) {
     try {
       await $axios.post(`${API}/products/`, newProduct);
     } catch (e) {
@@ -113,6 +128,9 @@ const ProductContext: FC<ProductContextProps> = ({ children }) => {
     deleteProduct,
     getOneProduct,
     editProduct,
+    modalIsOpen,
+    openModal,
+    closeModal,
   };
   return (
     <productContext.Provider value={value}>{children}</productContext.Provider>

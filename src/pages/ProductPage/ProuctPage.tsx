@@ -6,7 +6,7 @@ import { IProductContextTypes } from "../../contexts/ProductContext/types";
 import Filter from "../../components/Filter";
 
 const ProuctPage = () => {
-  const { getProducts, products } = useContext(
+  const { getProducts, products, openModal } = useContext(
     productContext
   ) as IProductContextTypes;
   const [searchParams] = useSearchParams();
@@ -19,7 +19,10 @@ const ProuctPage = () => {
       {products?.map((item) => (
         <div key={item.id}>
           <img src={item.image} alt="" className="image" />
-          <Link to={`/edit/${item.id}`}>Edit</Link>
+          <Link to={`/edit/${item.id}`} onClick={openModal}>
+            Edit
+          </Link>
+          {/* <button >Открыть модальное окно</button> */}
         </div>
       ))}
       <Filter />
