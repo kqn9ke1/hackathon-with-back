@@ -10,6 +10,7 @@ function AddProductPage() {
   const { categories, getCategories, addProduct } = useContext(
     productContext
   ) as IProductContextTypes;
+
   const [file, setFile] = useState(false);
   const [formValue, setFormValue] = useState({
     title: "a",
@@ -18,6 +19,7 @@ function AddProductPage() {
     image: "",
     category: "",
     stock: "in_stock",
+    owner_email: ["admin@gmail.com"],
   });
 
   useEffect(() => {
@@ -59,7 +61,9 @@ function AddProductPage() {
     const data = new FormData(event.currentTarget);
 
     addProduct(data);
+
     console.log(categories[0].name);
+
     setFormValue({
       title: "a",
       price: "0",
@@ -67,8 +71,9 @@ function AddProductPage() {
       stock: "in_stock",
       image: "",
       category: "",
+      owner_email: ["admin@gmail.com"],
     });
-    navigate("/posts");
+    navigate("/");
   };
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -141,7 +146,6 @@ function AddProductPage() {
               onChange={handleChange}
             />
             <datalist id="category"> */}
-
               {categories?.map((item) => (
                 <option key={item.slug} value={item.name}>
                   {item.name}

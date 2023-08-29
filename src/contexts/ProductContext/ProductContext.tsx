@@ -1,4 +1,10 @@
-import React, { FC, ReactNode, createContext, useReducer } from "react";
+import React, {
+  FC,
+  ReactNode,
+  createContext,
+  useContext,
+  useReducer,
+} from "react";
 import {
   IProductContextActions,
   IProductContextTypes,
@@ -9,6 +15,10 @@ import $axios from "../../utils/axios";
 import { API } from "../../utils/consts";
 
 export const productContext = createContext<IProductContextTypes | null>(null);
+
+export const useProductContext = (): IProductContextTypes => {
+  return useContext(productContext) as IProductContextTypes;
+};
 
 const initState: initStateProducts = {
   products: [],

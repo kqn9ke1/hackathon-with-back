@@ -39,33 +39,64 @@ const AuthPage = () => {
 
   return (
     <div className="auth_container">
-      <form className="form_container" onSubmit={handleSubmit}>
-        {isLogin ? <h2>Log in </h2> : <h2>Sign up</h2>}
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" required />
-        {!isLogin && (
-          <>
-            <label htmlFor="first_name">First Name</label>
-            <input type="text" name="first_name" />
-            <label htmlFor="last_name">Last Name</label>
-            <input type="text" name="last_name" />
-          </>
-        )}
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" required />
-        {!isLogin && (
-          <>
-            <label htmlFor="password2">Password comfirm</label>
-            <input type="password" name="password2" required />
-          </>
-        )}
-        <button type="submit">{isLogin ? "Log in" : "Sign up"}</button>
+      {/* {isLogin ? <h2>Log in </h2> : <h2>Sign up</h2>} */}
+      <div className="auth_container_box">
+        <div style={{ textAlign: "center" }}>
+          <i aria-label="Instagram" className="insta_img"></i>
+        </div>
+        <div className="form_container">
+          <form className="form_container" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              name="email"
+              placeholder="Number, nickname or email"
+              required
+            />
+            {!isLogin && (
+              <>
+                <input type="text" name="first_name" placeholder="Frist name" />
+                <input type="text" name="last_name" placeholder="Last name" />
+              </>
+            )}
+            <input
+              type="password"
+              name="password"
+              required
+              placeholder="password"
+            />
+            {!isLogin && (
+              <>
+                <input
+                  type="password"
+                  name="password2"
+                  placeholder="password confirm"
+                  required
+                />
+              </>
+            )}
+            <button type="submit">{isLogin ? "Log in" : "Sign up"}</button>
+          </form>
+        </div>
+      </div>
+      <div className="auth_isLogin_check">
         <a href="#" className="a" onClick={() => setIsLogin(!isLogin)}>
-          {isLogin
-            ? "Don't have an account? Sign up"
-            : "Already have an account? Log in"}
+          {isLogin ? (
+            <p>
+              Don't have an account?{"   "}
+              <span className="span" style={{ color: "blue" }}>
+                Sign up
+              </span>
+            </p>
+          ) : (
+            <p>
+              Already have an account?{"   "}
+              <span className="span" style={{ color: "blue" }}>
+                Log in
+              </span>
+            </p>
+          )}
         </a>
-      </form>
+      </div>
     </div>
   );
 };
