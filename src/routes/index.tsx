@@ -6,6 +6,7 @@ import ProuctPage from "../pages/ProductPage/ProuctPage";
 import AddProductPage from "../pages/AddProductPage/AddProductPage";
 import EditProductPage from "../pages/EditProductPage/EditProductPage";
 import { HomePage } from "../pages/HomePage/HomePage";
+import EditModalPage from "../pages/EditModalPage/EditModalPage";
 
 const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
       <Route path="/posts" element={<ProuctPage />} />
       <Route path="/add" element={<AddProductPage />} />
       <Route path="/edit/:id" element={<EditProductPage />} />
+      <Route path="/edit" element={<EditModalPage />} />
     </Routes>
   );
 };
